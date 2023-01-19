@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#form-container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  margin-right: 1rem;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 50%;
+  margin: 8px auto;
+  background-color: #4caf50;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#books {
+  margin: 2rem auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#books td,
+#books th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#books tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#books tr:nth-child(odd) {
+  background-color: #ddd;
+}
+
+#books th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+#show-hide-form {
+  background-color: #4cafaa;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.book-title {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.read-status {
+  cursor: pointer;
+}
