@@ -1,24 +1,19 @@
 const seed = [
+  { title: "The Great Gatsby", author: "F. Scott Fitzgerald", pages: 180 },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", pages: 272 },
+  { title: "Pride and Prejudice", author: "Jane Austen", pages: 227 },
+  { title: "The Catcher in the Rye", author: "J.D. Salinger", pages: 214 },
+  { title: "The Lord of the Rings", author: "J.R.R. Tolkien", pages: 1178 },
+  { title: "The Hobbit", author: "J.R.R. Tolkien", pages: 310 },
   {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    pages: 180,
-    read: true
+    title: "Harry Potter and the Philosopher's Stone",
+    author: "J.K. Rowling",
+    pages: 309
   },
-  {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    pages: 272,
-    read: false
-  },
-  {
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    pages: 227,
-    read: false
-  }
+  { title: "1984", author: "George Orwell", pages: 328 },
+  { title: "The Diary of a Young Girl", author: "Anne Frank", pages: 267 },
+  { title: "The Kite Runner", author: "Khaled Hosseini", pages: 371 }
 ];
-
 let myLibrary = [];
 let showForm = false;
 
@@ -29,8 +24,8 @@ form.addEventListener("submit", submitForm);
 showHideFormBtn.addEventListener("click", showHideForm);
 
 for (let item of seed) {
-  const { title, author, pages, read } = item;
-  const book = addBookToLibrary(title, author, pages, read);
+  const { title, author, pages } = item;
+  const book = addBookToLibrary(title, author, pages, Math.random() > 0.5);
 }
 
 function getNextId() {
