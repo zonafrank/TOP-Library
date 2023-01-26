@@ -14,6 +14,21 @@ const seed = [
   { title: "The Diary of a Young Girl", author: "Anne Frank", pages: 267 },
   { title: "The Kite Runner", author: "Khaled Hosseini", pages: 371 }
 ];
+
+class Book {
+  constructor(title, author, pages, read = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = getNextId();
+  }
+
+  toggleRead() {
+    this.read = !this.read;
+  }
+}
+
 let myLibrary = [];
 let showForm = false;
 
@@ -35,14 +50,6 @@ function getNextId() {
     id = Math.floor(Math.random() * 1000000);
   } while (ids.includes(id));
   return id;
-}
-
-function Book(title, author, pages, read = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = getNextId();
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -101,13 +108,8 @@ function displayBooks() {
 function toggleReadStatus(e) {
   const { target } = e;
   const bookId = target.dataset.bookId;
-  myLibrary = myLibrary.map((b) => {
-    if (b.id == bookId) {
-      return { ...b, read: !b.read };
-    } else {
-      return b;
-    }
-  });
+  const foundBook = myLibrary.find((b) => b.id == bookId);
+  foundBook.toggleRead();
   displayBooks();
 }
 
@@ -115,7 +117,6 @@ function deleteBook(e) {
   const parentElem = e.target.parentElement;
   const bookId = parentElem.dataset.bookId;
   const closestTd = parentElem.closest("td");
-  // console.log(closestTd);
   const bookTitleElem = closestTd.querySelector("span.book-title-text");
   const bookTitle = bookTitleElem.textContent;
 
